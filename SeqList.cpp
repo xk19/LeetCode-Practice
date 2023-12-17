@@ -40,9 +40,10 @@ void SeqListInit(SL* ps)
 }
 void SeqListPushBack(SL* ps, SLDataType x)
 {
-	SeqListCheckCapacity(ps);
+	/*SeqListCheckCapacity(ps);
 	ps->a[ps->size] = x;
-	ps->size++;
+	ps->size++;*/
+	SeqListInsert(ps, ps->size, x);
 }
 
 void SeqListPopBack(SL* ps)
@@ -53,7 +54,7 @@ void SeqListPopBack(SL* ps)
 
 void SeqListPushFront(SL* ps, SLDataType x)
 {
-	SeqListCheckCapacity(ps);
+	/*SeqListCheckCapacity(ps);
 	int end = ps->size - 1;
 	while (end >= 0)
 	{
@@ -61,7 +62,8 @@ void SeqListPushFront(SL* ps, SLDataType x)
 		--end;
 	}
 	ps->a[0] = x;
-	ps->size++;
+	ps->size++;*/
+	SeqListInsert(ps, 0, x);
 }
 
 void SeqListPopFront(SL* ps)
@@ -86,15 +88,16 @@ int SeqListFind(SL* ps, SLDataType x)
 }
 void SeqListInsert(SL* ps, int pos, SLDataType x)
 {
-	int end = ps->size;
 	SeqListCheckCapacity(ps);
-	assert(pos <= ps->size);
-	while (end - pos + 1 > 0)
+	assert(pos >= 0 && pos <= ps->size);
+
+	int end = ps->size - 1;
+	while (end >= pos)
 	{
-		ps->a[end] = ps->a[end - 1];
-		--end;
+		ps->a[end + 1] = ps->a[end];
+		end--;
 	}
-	ps->a[pos - 1] = x;
+	ps->a[pos] = x;
 	ps->size++;
 }
 void SeqListErase(SL* ps, int pos)
