@@ -3,10 +3,10 @@
 #include<stdlib.h>
 #include<assert.h>
 
-typedef int
-SLDataType;
+//顺序表头文件
 
-// 静态顺序表
+typedef int SLDataType;
+
 typedef struct SeqList
 {
 	SLDataType* a;

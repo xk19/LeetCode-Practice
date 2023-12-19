@@ -1,5 +1,29 @@
 #include"SeqList.h"
+#include"SList.h"
 
+/********************************该部分为LeetCode测试代码*******************************/
+void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n) {
+	int end1 = m - 1, end2 = n - 1;
+	int end = nums1Size - 1;
+	while (end1 >= 0 && end2 >= 0)
+	{
+		if (nums1[end1] > nums2[end2])
+		{
+			nums1[end--] = nums1[end1--];
+		}
+		else
+		{
+			nums1[end--] = nums2[end2--];
+		}
+	}
+	while (end2 >= 0)
+	{
+		nums1[end--] = nums2[end2--];
+	}
+
+}
+
+/********************************该部分为顺序表测试代码*******************************/
 void TestSeqList()
 {
 	SL s1;
@@ -78,10 +102,32 @@ void MenuTest()
 	SeqListDestory(&s1);
 }
 
+/********************************该部分为顺序表测试代码*******************************/
+void TestSList()
+{
+	SLTNode phead;
+}
 
+/****************************************Main函数***********************************/
 int main()
 {
+	//顺序表
 	//TestSeqList();
-	MenuTest();
+	//MenuTest();
+
+	//单链表
+	TestSList();
+
+	//LeetCodeTest
+	int nums1[] = { 1, 2, 3, 0, 0, 0 };
+	int nums2[] = { 2, 5, 6 };
+	int nums1Size = 6, nums2Size = 3;
+	int m = 3, n = 3;
+	merge(nums1, nums1Size, m, nums2, nums2Size, n);
+	for (int i = 0; i < nums1Size; i++)
+	{
+		printf("%d", nums1[i]);
+	}
+
 	return 0;
 }

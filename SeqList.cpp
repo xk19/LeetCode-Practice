@@ -1,5 +1,7 @@
 #include"SeqList.h"
 
+//À≥–Ú±Ì µœ÷
+
 void SeqListPrint(SL* ps)
 {
 	for (int i = 0; i < ps->size; i++)
