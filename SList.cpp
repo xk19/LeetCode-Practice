@@ -11,6 +11,24 @@ void SListPrint(SLTNode* phead)
 	}
 }
 
-void SListPushBack(SLTNode* phead, SLTDataType x)
+void SListPushBack(SLTNode** phead, SLTDataType x)
 {
+	SLTNode* newnode = (SLTNode*)malloc(sizeof(SLTNode));
+	newnode->data = x;
+	newnode->next = NULL;
+
+	SLTNode* tail = *phead;
+	if (*phead == NULL)
+	{
+		*phead = newnode;
+	}
+	else
+	{
+		while (tail != NULL)
+		{
+			tail = tail->next;
+		}
+		tail->next = newnode;
+	}
 }
+

@@ -105,7 +105,11 @@ void MenuTest()
 /********************************该部分为顺序表测试代码*******************************/
 void TestSList()
 {
-	SLTNode phead;
+	SLTNode* phead = NULL;
+	SListPushBack(&phead, 1);
+	SListPushBack(&phead, 2);
+	SListPushBack(&phead, 3);
+	SListPrint(phead);
 }
 
 /****************************************Main函数***********************************/
@@ -119,7 +123,7 @@ int main()
 	TestSList();
 
 	//LeetCodeTest
-	int nums1[] = { 1, 2, 3, 0, 0, 0 };
+	/*int nums1[] = { 1, 2, 3, 0, 0, 0 };
 	int nums2[] = { 2, 5, 6 };
 	int nums1Size = 6, nums2Size = 3;
 	int m = 3, n = 3;
@@ -127,7 +131,7 @@ int main()
 	for (int i = 0; i < nums1Size; i++)
 	{
 		printf("%d", nums1[i]);
-	}
+	}*/
 
 	return 0;
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include<stdio.h>
+#include<stdlib.h>
 
 typedef int SLTDataType;
 
@@ -10,4 +11,4 @@ typedef struct SListNode
 }SLTNode;
 
 void SListPrint(SLTNode* phead);
-void SListPushBack(SLTNode* phead, SLTDataType x);
+void SListPushBack(SLTNode** phead, SLTDataType x);
