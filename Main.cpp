@@ -2,25 +2,39 @@
 #include"SList.h"
 
 /********************************该部分为LeetCode测试代码*******************************/
-void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n) {
-	int end1 = m - 1, end2 = n - 1;
-	int end = nums1Size - 1;
-	while (end1 >= 0 && end2 >= 0)
+// Definition for singly - linked list.
+struct ListNode
+{
+	int val;
+	struct ListNode* next;
+};
+
+struct ListNode* removeElements(struct ListNode* head, int val) {
+	struct ListNode* cur = head, * pre = NULL;
+	while (cur)
 	{
-		if (nums1[end1] > nums2[end2])
+		if (cur->val == val)
 		{
-			nums1[end--] = nums1[end1--];
+			if (cur == head)
+			{
+				head = cur->next;
+				free(cur);
+				cur = head;
+			}
+			else
+			{
+				pre->next = cur->next;
+				free(cur);
+				cur = pre->next;
+			}
 		}
 		else
 		{
-			nums1[end--] = nums2[end2--];
+			pre = cur;
+			cur = cur->next;
 		}
 	}
-	while (end2 >= 0)
-	{
-		nums1[end--] = nums2[end2--];
-	}
-
+	return head;
 }
 
 /********************************该部分为顺序表测试代码*******************************/
@@ -111,10 +125,31 @@ void TestSList()
 	SListPushBack(&phead, 3);
 	SListPushBack(&phead, 4);
 	SListPushBack(&phead, 5);
+	SListPushBack(&phead, 1);
+	SListPushBack(&phead, 1);
 	SListPushBack(&phead, 6);
 	SListPrint(phead);
 
-	SListPoPBack(&phead);
+	//Find
+	SLTNode* pos = SListFind(phead, 1);
+	int i = 0;
+	while(pos)
+	{ 
+		printf("第%d个节点地址为:%p\n", ++i, pos);
+		pos = SListFind(pos->next, 1);
+	}
+
+	//Replace
+	pos = SListFind(phead, 4);
+	if (pos) pos->data = 40;
+	SListPrint(phead);
+
+	//Insert
+	pos = SListFind(phead, 5);
+	if (pos)
+	{
+		SListInsert(&phead, pos, 50);
+	}
 	SListPrint(phead);
 }
 
@@ -129,15 +164,20 @@ int main()
 	TestSList();
 
 	//LeetCodeTest
-	/*int nums1[] = { 1, 2, 3, 0, 0, 0 };
-	int nums2[] = { 2, 5, 6 };
-	int nums1Size = 6, nums2Size = 3;
-	int m = 3, n = 3;
-	merge(nums1, nums1Size, m, nums2, nums2Size, n);
-	for (int i = 0; i < nums1Size; i++)
-	{
-		printf("%d", nums1[i]);
-	}*/
+	//手动创建链表
+	/*struct ListNode* n1 = (struct ListNode*)malloc(sizeof(struct ListNode));
+	struct ListNode* n2 = (struct ListNode*)malloc(sizeof(struct ListNode));
+	struct ListNode* n3 = (struct ListNode*)malloc(sizeof(struct ListNode));
+	struct ListNode* n4 = (struct ListNode*)malloc(sizeof(struct ListNode));
+	n1->val = 7;
+	n2->val = 7;
+	n3->val = 7;
+	n4->val = 7;
+	n1->next = n2;
+	n2->next = n3;
+	n3->next = n4;
+	n4->next = NULL;
+	struct ListNode* head = removeElements(n1, 7);*/
 
 	return 0;
 }
