@@ -151,6 +151,16 @@ void TestSList()
 		SListInsert(&phead, pos, 50);
 	}
 	SListPrint(phead);
+
+	//Erase
+	pos = SListFind(phead, 6);
+	if (pos)
+	{
+		SListErase(&phead, pos);
+	}
+	SListPrint(phead);
+
+	SListDestory(&phead);
 }
 
 /****************************************Mainº¯Êý***********************************/

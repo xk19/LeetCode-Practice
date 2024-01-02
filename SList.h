@@ -21,5 +21,6 @@ void SListPoPFront(SLTNode** phead);
 
 SLTNode* SListFind(SLTNode* phead, SLTDataType x);
 void SListInsert(SLTNode** phead, SLTNode* pos, SLTDataType x);
+void SListInsertAfter(SLTNode* pos, SLTDataType x);
 void SListErase(SLTNode** phead, SLTNode* pos);
 void SListDestory(SLTNode** phead);
