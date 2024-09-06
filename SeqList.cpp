@@ -1,6 +1,13 @@
-#include"SeqList.h"
+#include "SeqList.h"
 
-//顺序表实现
+// 顺序表源文件
+
+void SeqListInit(SL* ps)
+{
+	ps->a = NULL;
+	ps->capacity = 0;
+	ps->size = 0;
+}
 
 void SeqListPrint(SL* ps)
 {
@@ -8,7 +15,14 @@ void SeqListPrint(SL* ps)
 	{
 		printf("%d ", ps->a[i]);
 	}
-	printf("\n");
+}
+
+void SeqListDestory(SL* ps)
+{
+	free(ps->a);
+	ps->a = NULL;
+	ps->capacity = 0;
+	ps->size = 0;
 }
 
 void SeqListCheckCapacity(SL* ps)
@@ -27,91 +41,81 @@ void SeqListCheckCapacity(SL* ps)
 	}
 }
 
-void SeqListDestory(SL* ps)
-{
-	free(ps->a);
-	ps->a = NULL;
-	ps->capacity = ps->size = 0;
-}
-
-void SeqListInit(SL* ps)
-{
-	ps->a = NULL;
-	ps->size = 0;
-	ps->capacity = 0;
-}
 void SeqListPushBack(SL* ps, SLDataType x)
 {
+	SeqListInsert(ps, ps->size, x);
 	/*SeqListCheckCapacity(ps);
 	ps->a[ps->size] = x;
 	ps->size++;*/
-	SeqListInsert(ps, ps->size, x);
 }
 
 void SeqListPopBack(SL* ps)
 {
+	SeqLiatErase(ps, ps->size - 1);
 	/*assert(ps->size > 0);
 	ps->size--;*/
-	SeqListErase(ps, ps->size - 1);
 }
 
 void SeqListPushFront(SL* ps, SLDataType x)
 {
+	SeqListInsert(ps, 0, x);
 	/*SeqListCheckCapacity(ps);
-	int end = ps->size - 1;
-	while (end >= 0)
+	int end = ps->size;
+	while (end)
 	{
-		ps->a[end + 1] = ps->a[end];
-		--end;
+		ps->a[end] = ps->a[end - 1];
+		end--;
 	}
 	ps->a[0] = x;
 	ps->size++;*/
-	SeqListInsert(ps, 0, x);
 }
 
 void SeqListPopFront(SL* ps)
 {
+	SeqLiatErase(ps, 0);
 	/*assert(ps->size > 0);
-	int begin = 1;
-	while (begin < ps->size)
+	int start = 1;
+	while (start < ps->size)
 	{
-		ps->a[begin - 1] = ps->a[begin];
-		++begin;
+		ps->a[start - 1] = ps->a[start];
+		start++;
 	}
 	ps->size--;*/
-	SeqListErase(ps, 0);
 }
 
 int SeqListFind(SL* ps, SLDataType x)
 {
 	for (int i = 0; i < ps->size; i++)
 	{
-		if (ps->a[i] == x) return i;
+		if (ps->a[i] == x)
+		{
+			return i;
+		}
 	}
 	return -1;
 }
+
 void SeqListInsert(SL* ps, int pos, SLDataType x)
 {
 	SeqListCheckCapacity(ps);
 	assert(pos >= 0 && pos <= ps->size);
-
-	int end = ps->size - 1;
+	int end = ps->size;
 	while (end >= pos)
 	{
-		ps->a[end + 1] = ps->a[end];
+		ps->a[end] = ps->a[end-1];
 		end--;
 	}
-	ps->a[pos] = x;
+	ps ->a[pos] = x;
 	ps->size++;
 }
-void SeqListErase(SL* ps, int pos)
+
+void SeqLiatErase(SL* ps, int pos)
 {
 	assert(pos >= 0 && pos < ps->size);
-
-	int start = pos + 1;
-	while (start < ps->size)
+	int start = pos;
+	while(start < ps->size - 1)
 	{
-		ps->a[start - 1] = ps->a[start];
+		ps->a[start] = ps->a[start+1];
 		start++;
 	}
 	ps->size--;

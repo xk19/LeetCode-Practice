@@ -14,6 +14,7 @@ typedef struct SeqList
 	int capacity;
 }SL;
 
+
 void SeqListInit(SL* ps);
 void SeqListPrint(SL* ps);
 void SeqListDestory(SL* ps);
@@ -26,4 +27,4 @@ void SeqListPopFront(SL* ps);
 
 int SeqListFind(SL* ps, SLDataType x);
 void SeqListInsert(SL* ps, int pos, SLDataType x);
-void SeqListErase(SL* ps, int pos);
+void SeqLiatErase(SL*ps, int pos);
