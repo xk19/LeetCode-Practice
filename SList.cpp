@@ -13,7 +13,7 @@ void SListPrint(SLTNode* phead)
 	printf("NULL\n");
 }
 
-SLTNode* CreateListNode(SLTDataType x)
+SLTNode* CreateSListNode(SLTDataType x)
 {
 	SLTNode* newnode = (SLTNode*)malloc(sizeof(SLTNode));
 
@@ -31,7 +31,7 @@ SLTNode* CreateListNode(SLTDataType x)
 void SListPushBack(SLTNode** phead, SLTDataType x)
 {
 	assert(phead);
-	SLTNode* newnode = CreateListNode(x);
+	SLTNode* newnode = CreateSListNode(x);
 	if (*phead == NULL)
 	{
 		*phead = newnode;
@@ -69,7 +69,7 @@ void SListPopBack(SLTNode** phead)
 
 void SListPushFront(SLTNode** phead, SLTDataType x)
 {
-	SLTNode* newnode = CreateListNode(x);
+	SLTNode* newnode = CreateSListNode(x);
 	newnode->next = *phead;
 	*phead = newnode;
 }
@@ -97,7 +97,7 @@ SLTNode* SListFind(SLTNode* phead, SLTDataType x)
 void SListInsert(SLTNode** phead, SLTNode* pos, SLTDataType x)
 {
 	assert(pos);
-	SLTNode* newnode = CreateListNode(x);
+	SLTNode* newnode = CreateSListNode(x);
 	SLTNode* posprev = *phead;
 
 	if (*phead == pos)
@@ -119,7 +119,7 @@ void SListInsert(SLTNode** phead, SLTNode* pos, SLTDataType x)
 void SListInsertAfter(SLTNode** phead, SLTNode* pos, SLTDataType x)
 {
 	assert(pos);
-	SLTNode* newnode = CreateListNode(x);
+	SLTNode* newnode = CreateSListNode(x);
 	newnode->next = pos->next;
 	pos->next = newnode;
 }
@@ -147,7 +147,7 @@ void SListErase(SLTNode** phead, SLTNode* pos)
 	}
 }
 
-void SListDestory(SLTNode** phead)
+void SListDestroy(SLTNode** phead)
 {
 	SLTNode* cur = *phead;
 	while (*phead)

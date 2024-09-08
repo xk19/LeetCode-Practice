@@ -1,20 +1,15 @@
 #include "SeqList.h"
 #include "SList.h"
+#include "List.h"
 
 /********************************LeetCode测试函数********************************/
-struct ListNode
+SLTNode* removeElements(SLTNode* head, int val)
 {
-    int val;
-    struct ListNode* next;
-};
-
-struct ListNode* removeElements(struct ListNode* head, int val)
-{
-    struct ListNode* cur = head, * prev = NULL;
+    SLTNode* cur = head, *prev = NULL;
 
     while (cur)
     {
-        if (cur->val == val)
+        if (cur->data == val)
         {
             if (cur == head)
             {
@@ -38,11 +33,10 @@ struct ListNode* removeElements(struct ListNode* head, int val)
     return head;
 }
 
-/********************************顺序表的测试函数********************************/
+/************************************顺序表************************************/
 void TestSeqList()
 {
     SL phead;
-    int pos;
     SeqListInit(&phead);
     SeqListPushBack(&phead, 1);
     SeqListPushBack(&phead, 2);
@@ -54,7 +48,7 @@ void TestSeqList()
     SeqListPrint(&phead);
 }
 
-/********************************链表的测试函数********************************/
+/************************************单链表************************************/
 void TestSList()
 {
     SLTNode* phead = NULL;
@@ -93,11 +87,38 @@ void TestSList()
     SListErase(&phead, pos);
     SListPrint(phead);
 
-    SListDestory(&phead);
+    SListDestroy(&phead);
 
 }
 
-/**************************************菜单测试代码*********************************/
+/************************************带头双向循环链表********************************/
+void TestList()
+{
+    LTNode* phead = ListInit();
+    ListPushBack(phead, 1);
+    ListPushBack(phead, 2);
+    ListPushBack(phead, 3);
+    ListPushBack(phead, 4);
+    ListPushFront(phead, 10);
+    ListPushFront(phead, 20);
+    ListPushFront(phead, 30);
+    ListPushFront(phead, 40);
+
+    ListPrint(phead);
+    ListPoPBack(phead);
+    ListPopFront(phead);
+    ListPrint(phead);
+
+    //Erase
+    LTNode* pos = ListFind(phead, 30);
+    ListErase(phead, pos);
+    ListPrint(phead);
+
+    ListDestroy(phead);
+    phead = NULL;
+}
+
+/******************************************菜单*************************************/
 void Menu()
 {
     printf("*************************\n");
@@ -155,7 +176,6 @@ void MenuTest()
            
         }
     }
-
 }
 
 /****************************************Main函数***********************************/
@@ -164,26 +184,30 @@ int main()
     //顺序表
     //TestSeqList();
     
-    //链表
-    TestSList();
+    //单链表
+    //TestSList();
+
+    //带头双向循环链表
+    TestList();
 
     //菜单
     //MenuTest();
 
     //手动创建链表
-    /*struct ListNode* n1 = (struct ListNode*)malloc(sizeof(struct ListNode));
-    struct ListNode* n2 = (struct ListNode*)malloc(sizeof(struct ListNode));
-    struct ListNode* n3 = (struct ListNode*)malloc(sizeof(struct ListNode));
-    struct ListNode* n4 = (struct ListNode*)malloc(sizeof(struct ListNode));
-    n1->val = 7;
-    n2->val = 7;
-    n3->val = 7;
-    n4->val = 7;
+    /*SLTNode* n1 = (SLTNode*)malloc(sizeof(SLTNode));
+    SLTNode* n2 = (SLTNode*)malloc(sizeof(SLTNode));
+    SLTNode* n3 = (SLTNode*)malloc(sizeof(SLTNode));
+    SLTNode* n4 = (SLTNode*)malloc(sizeof(SLTNode));
+    n1->data = 7;
+    n2->data = 7;
+    n3->data = 7;
+    n4->data = 7;
     n1->next = n2;
     n2->next = n3;
     n3->next = n4;
     n4->next = NULL;
-    struct ListNode* head = removeElements(n1, 7); */
+    SLTNode* head = removeElements(n1, 7);
+    SListPrint(head);*/
 
     return 0;
 }
