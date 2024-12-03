@@ -131,8 +131,10 @@
     <ClCompile Include="SeqList.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="SList.cpp" />
+    <ClCompile Include="LeetCode.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="LeetCode.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="SeqList.h" />
     <ClInclude Include="SList.h" />

@@ -1,6 +1,10 @@
 #include "SeqList.h"
 #include "SList.h"
 #include "List.h"
+#include "LeetCode.h"
+#include <iostream>
+
+using namespace std;
 
 /********************************LeetCode测试函数********************************/
 SLTNode* removeElements(SLTNode* head, int val)
@@ -188,7 +192,7 @@ int main()
     //TestSList();
 
     //带头双向循环链表
-    TestList();
+    //TestList();
 
     //菜单
     //MenuTest();
@@ -208,6 +212,9 @@ int main()
     n4->next = NULL;
     SLTNode* head = removeElements(n1, 7);
     SListPrint(head);*/
+    Solution st;
+    cout << st.Sum_Solution(5) << endl;
+
 
     return 0;
 }
