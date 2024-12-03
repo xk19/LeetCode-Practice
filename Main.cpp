@@ -212,8 +212,9 @@ int main()
     n4->next = NULL;
     SLTNode* head = removeElements(n1, 7);
     SListPrint(head);*/
-    Solution st;
-    cout << st.Sum_Solution(5) << endl;
+
+    //LeetCode Test
+    DataSum();
 
 
     return 0;

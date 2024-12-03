@@ -1,6 +1,6 @@
 #pragma once
 
-/********求两数之和******/
+/*************求两数之和**********/
 class Sum {
 public:
     Sum();
@@ -17,3 +17,7 @@ class Solution {
 public:
     int Sum_Solution(int n);
 };
+
+ 
+/***********给日期求天数***********/
+int DataSum();
