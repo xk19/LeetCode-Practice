@@ -2,9 +2,7 @@
 #include "SList.h"
 #include "List.h"
 #include "LeetCode.h"
-#include <iostream>
 
-using namespace std;
 
 /********************************LeetCode测试函数********************************/
 SLTNode* removeElements(SLTNode* head, int val)
@@ -213,8 +211,37 @@ int main()
     SLTNode* head = removeElements(n1, 7);
     SListPrint(head);*/
 
-    //LeetCode Test
-    DataSum();
+    
+    /****************************************LeetCode Test***********************************/
+    
+    /********通过构造函数求1+2+3+...+n之和**********/
+    //Sum1ToN wqw;
+    //cout << wqw.Sum_1toN(10) << endl;
+
+    /***************给日期求天数***************/
+    //DataSum();
+    
+    /******************仅仅反转字母*************/
+    /*ReverseChar rech;
+    string a("-sadsadg-0---sdf");
+    cout << rech.ReverseOnlyLetters(a) << endl;*/
+
+    /**********字符串中的第一个唯一字符**********/
+    /*string ch("qqwwee");
+    FirstUniqChar f;
+    cout << f.firstUniqChar(ch) << endl;*/
+
+    /*******************验证回文串**************/
+    /*string ch("123321");
+    Palindrome pa;
+    cout << pa.isPalindrome(ch) << endl;*/
+
+    /****************字符串相加****************/
+    /*string num1("70");
+    string num2("45");
+    AddString adst;
+    cout << adst.addStrings(num1, num2) << endl;
+    cout << adst.multiply(num1, num2) << endl;*/
 
 
     return 0;
