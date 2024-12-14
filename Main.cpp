@@ -243,6 +243,16 @@ int main()
     cout << adst.addStrings(num1, num2) << endl;
     cout << adst.multiply(num1, num2) << endl;*/
 
+    /*****************只出现一次的数字***************/
+    /*vector<int> nums1{2, 2, 3};
+    vector<int> nums2{ 2, 2, 2, 3 };
+    vector<int> nums3{ 2, 2, 5, 3 };
+    SingleNumber sn;
+    cout << sn.singleNumber(nums1) << endl;
+    cout << sn.singleNumber3(nums2) << endl;
+    vector<int> dif;
+    dif = sn.singleNumber2Dif(nums3);
+    cout << dif[0] << ' ' << dif[1] << endl;*/
 
     return 0;
 }

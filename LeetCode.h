@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <vector>
 #include <iostream>
 
 using namespace std;
@@ -36,7 +37,6 @@ public:
 };
 
 
-
 /**********字符串中的第一个唯一字符**************/
 class FirstUniqChar {
 public:
@@ -52,10 +52,18 @@ public:
 };
 
 
-
 /********************字符串相加*******************/
 class AddString {
 public:
     string addStrings(string num1, string num2);
     string multiply(string num1, string num2);
+};
+
+
+/*****************只出现一次的数字***************/
+class SingleNumber {
+public:
+    int singleNumber(vector<int>& nums);
+    int singleNumber3(vector<int>& nums);
+    vector<int> singleNumber2Dif(vector<int>& nums);
 };

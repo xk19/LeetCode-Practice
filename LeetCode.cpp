@@ -203,3 +203,56 @@ string AddString::multiply(string num1, string num2) {
 
     return result;
 }
+
+
+/*****************只出现一次的数字***************/
+int SingleNumber::singleNumber(vector<int>& nums) {
+    int  result = 0;
+    for (auto e : nums)
+    {
+        result ^= e;
+    }
+    return result;
+}
+
+int SingleNumber::singleNumber3(vector<int>& nums) {
+    int  result = 0;
+    int count[32] = { 0 };
+    for (auto e : nums)
+    {
+        for (int i = 0; i < 32; i++)
+        {
+            if (e & (1 << i))
+                ++count[i];
+        }
+    }
+    cout << count[1] << count[0] << endl;
+    for (int i = 0; i < 32; i++)
+    {
+        if (count[i] % 3 == 1) result += (1 << i);
+    }
+
+    return result;
+}
+
+vector<int> SingleNumber::singleNumber2Dif(vector<int>& nums) {
+    int val = 0, flag;
+    for (auto e : nums)
+    {
+        val ^= e;
+    }
+    for (flag = 0; flag < 32; flag++)
+    {
+        if (val & (1 << flag))
+            break;
+    }
+    vector<int> result(2, 0);
+    for (auto e : nums)
+    {
+        if (e & (1 << flag))
+            result[0] ^= e;
+        else
+            result[1] ^= e;
+    }
+    return result;
+}
