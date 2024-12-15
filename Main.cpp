@@ -254,5 +254,10 @@ int main()
     dif = sn.singleNumber2Dif(nums3);
     cout << dif[0] << ' ' << dif[1] << endl;*/
 
+    /**********************Ñî»ÔÈı½Ç*********************/
+    /*TriangleGenerate tri;
+    vector<vector<int>> result;
+    result = tri.generate(5);*/
+
     return 0;
 }

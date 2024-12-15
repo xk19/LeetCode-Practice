@@ -256,3 +256,24 @@ vector<int> SingleNumber::singleNumber2Dif(vector<int>& nums) {
     }
     return result;
 }
+
+
+/**********************Ñî»ÔÈý½Ç*********************/
+vector<vector<int>> TriangleGenerate::generate(int numRows) {
+    vector<vector<int>> vv;
+    vv.resize(numRows);
+    vv[0].resize(1);
+    vv[0][0] = 1;
+    if (numRows == 1) return vv;
+    for (int i = 1; i < numRows; ++i)
+    {
+        vv[i].resize(i + 1);
+        vv[i][i] = 1;
+        vv[i][0] = 1;
+        for (int j = 1; j < i; ++j)
+        {
+            vv[i][j] = vv[i - 1][j - 1] + vv[i - 1][j];
+        }
+    }
+    return vv;
+}

@@ -67,3 +67,10 @@ public:
     int singleNumber3(vector<int>& nums);
     vector<int> singleNumber2Dif(vector<int>& nums);
 };
+
+
+/**********************Ñî»ÔÈý½Ç*********************/
+class TriangleGenerate {
+public:
+    vector<vector<int>> generate(int numRows);
+};
