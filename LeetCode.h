@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <stack>
 
 using namespace std;
 
@@ -74,3 +75,17 @@ class TriangleGenerate {
 public:
     vector<vector<int>> generate(int numRows);
 };
+
+
+/*********************×îÐ¡Õ»**********************/
+class MinStack {
+public:
+    void push(int val);
+    void pop();
+    int top();
+    int getMin();
+
+    stack<int> _st;
+    stack<int> _minist;
+};
+

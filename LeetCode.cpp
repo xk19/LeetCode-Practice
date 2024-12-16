@@ -277,3 +277,29 @@ vector<vector<int>> TriangleGenerate::generate(int numRows) {
     }
     return vv;
 }
+
+
+/*********************ื๎ะกีป**********************/
+void MinStack::push(int val) {
+    _st.push(val);
+    if (_minist.empty() || val <= _minist.top())
+    {
+        _minist.push(val);
+    }
+}
+
+void MinStack::pop() {
+    if (_st.top() == _minist.top())
+    {
+        _minist.pop();
+    }
+    _st.pop();
+}
+
+int MinStack::top() {
+    return _st.top();
+}
+
+int MinStack::getMin() {
+    return _minist.top();
+}

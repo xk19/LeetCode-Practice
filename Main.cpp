@@ -259,5 +259,16 @@ int main()
     vector<vector<int>> result;
     result = tri.generate(5);*/
 
+    /***********************×îĞ¡Õ»**************************/
+    /*MinStack minst;
+    minst.push(-2);
+    minst.push(3);
+    minst.push(0);
+    minst.push(4);
+    cout << minst.top() << endl;
+    minst.pop();
+    cout << minst.getMin() << endl;
+    cout << minst.top() << endl;*/
+
     return 0;
 }
