@@ -303,3 +303,163 @@ int MinStack::top() {
 int MinStack::getMin() {
     return _minist.top();
 }
+
+
+
+/***************栈的压入、弹出序列******************/
+bool StackIsPopOrder::IsPopOrder(vector<int>& pushV, vector<int>& popV) {
+    // write code here
+    stack<int> st;
+    int pushi = 0, popi = 0;
+    while (pushi < pushV.size())
+    {
+        st.push(pushV[pushi]);
+        ++pushi;
+        while (!st.empty() && st.top() == popV[popi])
+        {
+            st.pop();
+            ++popi;
+        }
+    }
+    return st.empty();
+}
+
+
+
+/****************逆波兰表达式求值******************/
+int EvalRPN::evalRPN(vector<string>& tokens) {
+    stack<int> st;
+    for (auto& str : tokens)
+    {
+        if (str == "+" || str == "-" || str == "*" || str == "/")
+        {
+            int right = st.top();
+            st.pop();
+            int left = st.top();
+            st.pop();
+
+            switch (str[0])
+            {
+            case '+':
+                st.push(left + right);
+                break;
+            case '-':
+                st.push(left - right);
+                break;
+            case '*':
+                st.push(left * right);
+                break;
+            case '/':
+                st.push(left / right);
+                break;
+            }
+        }
+        else
+        {
+            st.push(stoi(str));
+        }
+    }
+    return st.top();
+}
+
+
+
+/****************用栈实现队列******************/
+void MyQueue::push(int x) {
+    st1.push(x);
+}
+
+int MyQueue::pop() {
+    if (st2.empty())
+    {
+        while (!st1.empty())
+        {
+            st2.push(st1.top());
+            st1.pop();
+        }
+    }
+    int temp = st2.top();
+    st2.pop();
+    return temp;
+}
+
+int MyQueue::peek() {
+    if (st2.empty())
+    {
+        while (!st1.empty())
+        {
+            st2.push(st1.top());
+            st1.pop();
+        }
+    }
+    return st2.top();
+}
+
+bool MyQueue::empty() {
+    return st1.empty() && st2.empty();
+}
+
+
+
+/******************用队列实现栈********************/
+void MyStack::push(int x) {
+    if (qu1.empty())
+    {
+        qu1.push(x);
+        while (!qu2.empty())
+        {
+            qu1.push(qu2.front());
+            qu2.pop();
+        }
+    }
+    else
+    {
+        qu2.push(x);
+        while (!qu1.empty())
+        {
+            qu2.push(qu1.front());
+            qu1.pop();
+        }
+    }
+}
+
+int MyStack::pop() {
+    int tmp = 0;
+    if (!qu1.empty())
+    {
+        tmp = qu1.front();
+        qu1.pop();
+    }
+    else
+    {
+        tmp = qu2.front();
+        qu2.pop();
+    }
+    return tmp;
+}
+
+int MyStack::top() {
+    if (!qu1.empty())
+        return qu1.front();
+    else
+        return qu2.front();
+}
+
+bool MyStack::empty() {
+    return qu1.empty() && qu2.empty();
+}
+
+
+
+/****************数组中的第K个最大元素****************/
+
+int FindKthLargest::findKthLargest(vector<int>& nums, int k) {
+    priority_queue<int> kth;
+    for (auto e : nums)
+        kth.push(e);
+    while (--k)
+    {
+        kth.pop();
+    }
+    return kth.top();
+}

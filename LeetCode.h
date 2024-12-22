@@ -3,7 +3,7 @@
 #include <vector>
 #include <iostream>
 #include <stack>
-
+#include <queue>
 using namespace std;
 
 /********通过构造函数求1+2+3+...+n之和**********/
@@ -89,3 +89,54 @@ public:
     stack<int> _minist;
 };
 
+
+
+/***************栈的压入、弹出序列******************/
+class StackIsPopOrder {
+public:
+    bool IsPopOrder(vector<int>& pushV, vector<int>& popV);
+};
+
+
+
+/****************逆波兰表达式求值******************/
+class EvalRPN {
+public:
+    int evalRPN(vector<string>& tokens);
+};
+
+
+
+/******************用栈实现队列********************/
+class MyQueue {
+public:
+    MyQueue() {}
+    void push(int x);
+    int pop();
+    int peek();
+    bool empty();
+    stack<int> st1;
+    stack<int> st2;
+};
+
+
+
+/******************用队列实现栈********************/
+class MyStack {
+public:
+    MyStack() {}
+    void push(int x);
+    int pop();
+    int top();
+    bool empty();
+    queue<int> qu1;
+    queue<int> qu2;
+};
+
+
+
+/****************数组中的第K个最大元素****************/
+class FindKthLargest {
+public:
+    int findKthLargest(vector<int>& nums, int k);
+};

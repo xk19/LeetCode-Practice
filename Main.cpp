@@ -270,5 +270,23 @@ int main()
     cout << minst.getMin() << endl;
     cout << minst.top() << endl;*/
 
+   /***************栈的压入、弹出序列******************/
+   /* vector<int> in = { 1, 2, 3, 4, 5 };
+    vector<int> out = { 4, 2, 1, 5, 3};
+    StackIsPopOrder st;
+    cout << st.IsPopOrder(in, out) << endl;*/
+
+    /****************逆波兰表达式求值******************/
+    /*vector<string> in = {"4","13","5","/","+"};
+    EvalRPN rpn;
+    cout << rpn.evalRPN(in) << endl;*/
+
+    /***************数组中的第K个最大元素***************/
+    /*vector<int> nums = {3,2,1,5,6,4};
+    int k = 2;
+    FindKthLargest find;
+    cout << find.findKthLargest(nums, k) << endl;*/
+
+
     return 0;
 }
