@@ -452,7 +452,6 @@ bool MyStack::empty() {
 
 
 /****************数组中的第K个最大元素****************/
-
 int FindKthLargest::findKthLargest(vector<int>& nums, int k) {
     priority_queue<int> kth;
     for (auto e : nums)
@@ -462,4 +461,16 @@ int FindKthLargest::findKthLargest(vector<int>& nums, int k) {
         kth.pop();
     }
     return kth.top();
+}
+
+
+
+/*****************将整数按权重排序*****************/
+int ReWeight::getKth(int lo, int hi, int k) {
+    for (int i = lo; i <= hi; i++)
+    {
+        nums.push_back(i);
+    }
+    sort(nums.begin(), nums.end(), cmp);
+    return nums[k - 1];
 }

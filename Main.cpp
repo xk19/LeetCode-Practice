@@ -288,5 +288,13 @@ int main()
     cout << find.findKthLargest(nums, k) << endl;*/
 
 
+    /*****************将整数按权重排序*****************/
+    /*ReWeight kth;
+    int lo = 7, hi = 11, k = 4;
+    int result = kth.getKth(lo, hi, k);
+    cout << "The " << k << "-th smallest number in range [" << lo << ", " << hi << "] based on weight is: " << result << endl;*/
+
+
+
     return 0;
 }

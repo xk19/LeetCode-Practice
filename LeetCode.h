@@ -140,3 +140,25 @@ class FindKthLargest {
 public:
     int findKthLargest(vector<int>& nums, int k);
 };
+
+
+
+/*****************将整数按权重排序*****************/
+class ReWeight {
+public:
+    int getKth(int lo, int hi, int k);
+    static int weight(int num)
+    {
+        if (num == 1) return 0;
+        if (num & 1) return weight(num * 3 + 1) + 1;
+        else return weight(num / 2) + 1;
+    }
+    static bool cmp(int a, int b)
+    {
+        if (weight(a) == weight(b))
+            return a < b;
+        else
+            return weight(a) < weight(b);
+    }
+    vector<int> nums;
+};
