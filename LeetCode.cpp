@@ -474,3 +474,43 @@ int ReWeight::getKth(int lo, int hi, int k) {
     sort(nums.begin(), nums.end(), cmp);
     return nums[k - 1];
 }
+
+
+/*****************合并两个有序数组*****************/
+void MergeOrderNums::merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+    int a = m - 1, b = n - 1, i = m + n - 1;
+    while (a >= 0 && b >= 0)
+    {
+        if (nums1[a] >= nums2[b]) nums1[i--] = nums1[a--];
+        else nums1[i--] = nums2[b--];
+    }
+    if (a < 0)
+    {
+        while (b >= 0)
+        {
+            nums1[i--] = nums2[b--];
+        }
+    }
+}
+
+
+
+/*****************删除有序数组中的重复项 II*****************/
+int RemoveDuplicates2::removeDuplicates(vector<int>& nums) {
+    int posprv = 0, pos = 1, flag = 0;
+    if (nums.size() <= 2) return nums.size();
+    int i = 2;
+    while (i < nums.size())
+    {
+        if (nums[posprv] == nums[pos] && nums[pos] == nums[i])
+        {
+            i++;
+        }
+        else
+        {
+            nums[++pos] = nums[i++];
+            posprv++;
+        }
+    }
+    return pos + 1;
+}

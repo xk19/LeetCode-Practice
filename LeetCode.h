@@ -162,3 +162,17 @@ public:
     }
     vector<int> nums;
 };
+
+/*****************合并两个有序数组*****************/
+class MergeOrderNums {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n);
+};
+
+
+
+/*****************删除有序数组中的重复项 II*****************/
+class RemoveDuplicates2 {
+public:
+    int removeDuplicates(vector<int>& nums);
+};

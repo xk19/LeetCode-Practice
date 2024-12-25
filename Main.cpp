@@ -287,14 +287,29 @@ int main()
     FindKthLargest find;
     cout << find.findKthLargest(nums, k) << endl;*/
 
-
     /*****************将整数按权重排序*****************/
     /*ReWeight kth;
     int lo = 7, hi = 11, k = 4;
     int result = kth.getKth(lo, hi, k);
     cout << "The " << k << "-th smallest number in range [" << lo << ", " << hi << "] based on weight is: " << result << endl;*/
 
+    /*****************合并两个有序数组*****************/
+    /*vector<int> nums1 = { 1,2,3,0,0,0 };
+    vector<int> nums2 = { 2,5,6 };
+    int m = 3, n = 3;
+    MergeOrderNums me;
+    me.merge(nums1, m, nums2, n);
+    for(auto e:nums1)
+        cout << e << ' ';
+    cout << endl;*/
 
+    /*****************删除有序数组中的重复项 II*****************/
+    /*vector<int> nums = { 0,0,1,1,1,1,2,3,3 };
+    RemoveDuplicates2 rmd;
+    int count = rmd.removeDuplicates(nums);
+    for (int i = 0; i < count; i++)
+        cout << nums[i] << ' ';
+    cout << endl;*/
 
     return 0;
 }
