@@ -4,6 +4,7 @@
 #include <iostream>
 #include <stack>
 #include <queue>
+#include <algorithm>
 using namespace std;
 
 /********通过构造函数求1+2+3+...+n之和**********/
@@ -175,4 +176,19 @@ public:
 class RemoveDuplicates2 {
 public:
     int removeDuplicates(vector<int>& nums);
+};
+
+
+/**********************多数元素***********************/
+class MajorityElement {
+public:
+    int majorityElement(vector<int>& nums);
+};
+
+
+
+/**********************轮转数组***********************/
+class Rotate {
+public:
+    void rotate(vector<int>& nums, int k);
 };

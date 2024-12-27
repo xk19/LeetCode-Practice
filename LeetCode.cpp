@@ -514,3 +514,27 @@ int RemoveDuplicates2::removeDuplicates(vector<int>& nums) {
     }
     return pos + 1;
 }
+
+
+
+/**********************多数元素***********************/
+//摩尔投票法
+int MajorityElement::majorityElement(vector<int>& nums) {
+    int x = 0, votes = 0;
+    for (auto e : nums)
+    {
+        if (votes == 0) x = e;
+        votes += (x == e) ? 1 : -1;
+    }
+    return x;
+}
+
+
+
+/**********************轮转数组***********************/
+void Rotate::rotate(vector<int>& nums, int k) {
+    k = k % nums.size();
+    reverse(nums.begin(), nums.end());
+    reverse(nums.begin(), nums.begin() + k);
+    reverse(nums.begin() + k, nums.end());
+}

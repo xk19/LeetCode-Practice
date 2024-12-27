@@ -311,5 +311,18 @@ int main()
         cout << nums[i] << ' ';
     cout << endl;*/
 
+    /**********************多数元素***********************/  
+    /*vector<int> nums = { 2,2,1,1,1,2,2 };
+    MajorityElement maj;
+    cout << maj.majorityElement(nums);*/
+
+    /**********************轮转数组***********************/
+    /*vector<int> nums = { 1,2,1,3,4,5,6 };
+    Rotate rot;
+    rot.rotate(nums, 4);
+    for (int i = 0; i < nums.size(); i++)
+        cout << nums[i] << ' ';
+    cout << endl; */
+
     return 0;
 }
