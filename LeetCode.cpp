@@ -538,3 +538,63 @@ void Rotate::rotate(vector<int>& nums, int k) {
     reverse(nums.begin(), nums.begin() + k);
     reverse(nums.begin() + k, nums.end());
 }
+
+
+
+/*****************买卖股票的最佳时机*******************/
+//动态规划
+int MaxProfit::maxProfit(vector<int>& prices) {
+    int minprice = INT_MAX, profit = 0;
+    for (auto e : prices)
+    {
+        minprice = min(minprice, e);
+        profit = max(profit, e - minprice);
+    }
+    return profit;
+}
+//贪心
+int MaxProfit::maxProfit2(vector<int>& prices) {
+    int prev = prices[0], profit = 0;
+    for (auto e : prices)
+    {
+        if (e - prev > 0)
+        {
+            profit += e - prev;
+        }
+        prev = e;
+    }
+    return profit;
+}
+
+
+
+/**********************跳跃游戏***********************/
+//贪心
+bool CanJump::canJump(vector<int>& nums) {
+    int can = nums[0];
+    for (int i = 1; i < nums.size(); i++)
+    {
+        if (i > can) return false;
+        can = max(can, i + nums[i]);
+    }
+    return true;
+}
+
+int CanJump::jump(vector<int>& nums) {
+    int i = 0, count = 1, jump = nums[0], nextjump = nums[0];
+    if (nums.size() == 1) return 0;
+    if (nums[0] >= nums.size() - 1) return 1;
+    while (i < nums.size())
+    {
+        for (int j = i + 1; j <= jump; j++)
+        {
+            nextjump = max(nextjump, j + nums[j]);
+            if (nextjump >= nums.size() - 1) return count + 1;
+        }
+        i = jump;
+        jump = nextjump;
+        count++;
+    }
+    return count;
+}
+

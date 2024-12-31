@@ -324,5 +324,17 @@ int main()
         cout << nums[i] << ' ';
     cout << endl; */
 
+    /*****************买卖股票的最佳时机*******************/
+    /*vector<int> prices = { 7,1,5,3,6,4 };
+    MaxProfit profit;
+    cout << profit.maxProfit(prices) << endl;
+    cout << profit.maxProfit2(prices) << endl;*/
+
+
+    /**********************跳跃游戏***********************/
+    vector<int> nums = { 2,3,1,1,4 };
+    CanJump jump;
+    cout << jump.jump(nums) << endl;
+
     return 0;
 }

@@ -192,3 +192,21 @@ class Rotate {
 public:
     void rotate(vector<int>& nums, int k);
 };
+
+
+
+/*****************买卖股票的最佳时机*******************/
+class MaxProfit {
+public:
+    int maxProfit(vector<int>& prices);
+    int maxProfit2(vector<int>& prices);
+};
+
+
+
+/**********************跳跃游戏***********************/
+class CanJump {
+public:
+    bool canJump(vector<int>& nums);
+    int jump(vector<int>& nums);
+};
