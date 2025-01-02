@@ -210,3 +210,17 @@ public:
     bool canJump(vector<int>& nums);
     int jump(vector<int>& nums);
 };
+
+
+/************************H指数************************/
+class HIndex {
+public:
+    int hIndex(vector<int>& citations);
+};
+
+
+/**************除自身以外数组的乘积******************/
+class ProductExceptSelf {
+public:
+    vector<int> productExceptSelf(vector<int>& nums);
+};

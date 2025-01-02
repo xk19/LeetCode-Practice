@@ -598,3 +598,42 @@ int CanJump::jump(vector<int>& nums) {
     return count;
 }
 
+
+
+/************************H指数************************/
+int HIndex::hIndex(vector<int>& citations) {
+    int h = citations.size();
+    while (h)
+    {
+        int i = 0;
+        for (auto e : citations)
+        {
+            if (e >= h) i++;
+        }
+        if (i >= h) break;
+        h--;
+    }
+    return h;
+}
+
+
+/**************除自身以外数组的乘积******************/
+vector<int> ProductExceptSelf::productExceptSelf(vector<int>& nums) {
+    int length = nums.size();
+    vector<int> right(length, 0), left(length, 0), answer(length, 0);
+    left[0] = 1;
+    for (int i = 1; i < length; i++)
+    {
+        left[i] = left[i - 1] * nums[i - 1];
+    }
+    right[length - 1] = 1;
+    for (int i = length - 2; i >= 0; i--)
+    {
+        right[i] = right[i + 1] * nums[i + 1];
+    }
+    for (int i = 0; i < length; i++)
+    {
+        answer[i] = left[i] * right[i];
+    }
+    return answer;
+}

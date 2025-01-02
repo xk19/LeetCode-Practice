@@ -332,9 +332,24 @@ int main()
 
 
     /**********************跳跃游戏***********************/
-    vector<int> nums = { 2,3,1,1,4 };
+    /*vector<int> nums = { 2,3,1,1,4 };
     CanJump jump;
-    cout << jump.jump(nums) << endl;
+    cout << jump.jump(nums) << endl;*/
+
+    /************************H指数************************/
+    /*vector<int> nums = { 3,0,6,1,5 };
+    HIndex h;
+    cout << h.hIndex(nums) << endl;*/
+
+    /**************除自身以外数组的乘积******************/
+    /*vector<int> nums = { 1,2,3,4 };
+    ProductExceptSelf pro;
+    vector<int> answer = pro.productExceptSelf(nums);
+    for(auto e:answer)
+    {
+        cout << e << ' ';
+    }
+    cout << endl;*/
 
     return 0;
 }
